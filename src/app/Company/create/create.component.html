@@ -1,1 +1,37 @@
-<p>create works!</p>
+<div class="wrapper-Create">
+    <h1>Create Company</h1>
+
+    <div style="width: 70%; margin: auto; background-color: #fff; padding: 1rem;border-radius: 8px;"
+            [formGroup]="Company">
+        <div class="from-control">
+            <label for="name">Name:</label>
+            <div>
+                <input type="text" id="name" formControlName="name">
+            </div>
+        </div>
+        <div class="from-control">
+            <label for="name">Address:</label>
+            <div>
+                <input type="text" id="address" formControlName="address">
+            </div>
+        </div>
+        <div class="from-control">
+            <label for="name">Phone:</label>
+            <div>
+                <input type="text" id="phone" formControlName="phone">
+            </div>
+        </div>
+        <div class="from-control">
+            <label for="name">Email:</label>
+            <div>
+                <input type="text" id="email" formControlName="email">
+            </div>
+        </div>
+        <div class="from-control">
+            <div class="btn-action"
+            (click)="handleSave()">
+                Save
+            </div>
+        </div>
+    </div>
+</div>

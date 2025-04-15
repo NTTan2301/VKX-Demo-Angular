@@ -1,0 +1,30 @@
+.wrapper-Create{
+    background-image: linear-gradient(to right, #D434B0, #8029FC);
+    height: calc(100vh - 70px);  
+}
+.from-control{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.from-control input{
+    width: -webkit-fill-available;
+    border: none;
+    outline: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background-color: #e2e2e2;
+}
+.from-control label{
+    font-weight: 600;
+}
+.btn-action{
+    background-image: linear-gradient(to right, #D434B0, #8029FC);
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    cursor: pointer;
+}

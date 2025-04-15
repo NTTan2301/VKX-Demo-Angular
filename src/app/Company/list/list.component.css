@@ -45,3 +45,8 @@
     display: flex;
     align-items: center;
 }
+.btn-create{
+    text-align:right;
+    background-image: linear-gradient(to right, #D434B0, #8029FC);
+    border-radius: 8px;
+}

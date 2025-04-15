@@ -1,6 +1,13 @@
 <div class="wrapper-List">
     <h1>List Companay</h1>
     <div class="group-Company">
+        <div class="btn-container">
+            <button class="btn-create" [routerLink]="['/company/create']">
+                <img src="assets/Icon/create.png" width="20px" />
+                Thêm mới
+              </button>
+        </div>
+       
         <div class="header-Company">
             <div class="col-1">Image</div>
             <div class="col-2">Name</div>
@@ -9,18 +16,20 @@
             <div class="col-5">Action</div>
         </div>
         <div class="body-Company">
-            <div class="row-Company">
+            <div class="row-Company" *ngFor="let item of LstCompany">
                 <div class="col-1">
-                    <img src="assets/images/userIcon.png" width="50px" height="auto" />
+                    <img src="{{item.image}}" width="50px" height="auto" />
                 </div>
-                <div class="col-2">Name</div>
-                <div class="col-3">Phone</div>
-                <div class="col-4">Email</div>
+                <div class="col-2">{{item.name}}</div>
+                <div class="col-3">{{item.phone}}</div>
+                <div class="col-4">{{item.email}}</div>
                 <div class="col-5">
-                    <div class="btn-detail">
-                        <img src="assets/Icon/detail.png" width="30px" height="auto" alt="detail">
-                    </div>
-                    <div class="btn-delete">
+                    <a [routerLink]="['/company/detail',item.id]">
+                        <div class="btn-detail">
+                            <img src="assets/Icon/detail.png" width="30px" height="auto" alt="detail">
+                        </div>
+                    </a>
+                    <div class="btn-delete" (click)="handleDelete(item.id)">
                         <img src="assets/Icon/delete.png" width="30px" height="auto" alt="delete">
                     </div>
                 </div>
