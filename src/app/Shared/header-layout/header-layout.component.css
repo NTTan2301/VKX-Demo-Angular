@@ -1,0 +1,18 @@
+.Header-logo svg{
+    width: 120px;
+}
+.group-header{
+    display: flex;
+    justify-content: space-between;
+    padding: .6rem 1rem;
+    align-content: center;
+    box-shadow: rgb(0, 0, 0, 15) 1px 1px 10px 0px;
+}
+.btn-User{
+    background-image: linear-gradient(to right, #D434B0, #8029FC);
+    padding: 0.5 rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}

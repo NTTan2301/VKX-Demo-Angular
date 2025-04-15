@@ -1,0 +1,47 @@
+.wrapper-List{
+    background-image: linear-gradient(to right, #D434B0, #8029FC);
+    height: calc(100vh - 70px);
+}
+
+.group-Company{
+    width: 75%;
+    background: #fff;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 4px;
+}
+.header-Company{
+    display: flex;
+    padding: 1rem;
+    background: #e2e2e2;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+}
+.col-1{
+    flex: 1;
+}
+.col-2{
+    flex: 1.5;
+}
+.col-3{
+    flex: 1;
+}
+.col-4{
+    flex: 1;
+}
+.col-5{
+    display: flex;
+    flex: .5;
+}
+.body-Company{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.row-Company{
+    display: flex;
+    align-items: center;
+}
