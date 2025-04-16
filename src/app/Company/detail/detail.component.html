@@ -1,4 +1,47 @@
-<p>   số thứ thự : {{id}}</p>
-<h1>
-    số thứ thự : {{id}}
-</h1>
+<div class="wrapper-Create">
+    <h1>Create Company</h1>
+
+    <div style="width: 70%; margin: auto; background-color: #fff; padding: 1rem;border-radius: 8px;"
+            [formGroup]="Company">
+        <div class="from-control">
+            <label for="name">Name:</label>
+            <div>
+                <input type="text" id="name" formControlName="name">
+            </div>
+        </div>
+        <div class="from-control">
+            <label for="name">Address:</label>
+            <div>
+                <input type="text" id="address" formControlName="address">
+            </div>
+        </div>
+        <div class="from-control">
+            <label for="name">Phone:</label>
+            <div>
+                <input type="text" id="phone" formControlName="phone">
+            </div>
+        </div>
+        <div class="from-control">
+            <label for="name">Email:</label>
+            <div>
+                <input type="text" id="email" formControlName="email">
+            </div>
+        </div>
+        <div class="from-control">
+            <div class="group-btn-action">
+                <div class="btn-action" *ngIf="!isEditing" (click)="EditChange()">
+                    Edit
+                </div>
+                <div class="btn-action" *ngIf="!isEditing" (click)="handleExit()">
+                    Exit
+                </div>
+                <div class="btn-action" *ngIf="isEditing" (click)="Save()">
+                    Save
+                </div>
+                <div class="btn-action" *ngIf="isEditing" (click)="handleCancel()">
+                    Cancel
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
