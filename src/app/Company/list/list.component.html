@@ -1,39 +1,34 @@
 <div class="wrapper-List">
     <h1>List Companay</h1>
     <div class="group-Company">
+
+        <div class="search-container">
+            <label for="search" class="search-label">Tìm kiếm:</label>
+            <input id="search" type="text" [(ngModel)]="paging['filterName']" class="search-input" placeholder="Nhập từ khóa tìm kiếm" />
+            <button (click)="onSearch()" class="search-btn">Tìm kiếm</button>
+        </div>
+
         <div class="btn-container">
             <button class="btn-create" [routerLink]="['/company/create']">
                 <img src="assets/Icon/create.png" width="20px" />
                 Thêm mới
               </button>
         </div>
-       
-        <div class="header-Company">
-            <div class="col-1">Image</div>
-            <div class="col-2">Name</div>
-            <div class="col-3">Phone</div>
-            <div class="col-4">Email</div>
-            <div class="col-5">Action</div>
-        </div>
-        <div class="body-Company">
-            <div class="row-Company" *ngFor="let item of LstCompany">
-                <div class="col-1">
-                    <img src="{{item.image}}" width="50px" height="auto" />
-                </div>
-                <div class="col-2">{{item.name}}</div>
-                <div class="col-3">{{item.phone}}</div>
-                <div class="col-4">{{item.email}}</div>
+        <app-paged-table
+            [data]="pagedResult"
+            [columns]="columns"
+            (pageChange)="onPageChange($event)">
+            <ng-template #actionTemplate let-item>
                 <div class="col-5">
-                    <a [routerLink]="['/company/detail/',item.id]">
-                        <div class="btn-detail">
-                            <img src="assets/Icon/detail.png" width="30px" height="auto" alt="detail">
-                        </div>
-                    </a>
-                    <div class="btn-delete" (click)="handleDelete(item.id)">
-                        <img src="assets/Icon/delete.png" width="30px" height="auto" alt="delete">
-                    </div>
+                 <a [routerLink]="['/company/detail/', item.id]">
+                     <img src="assets/Icon/detail.png" width="30px" height="auto" alt="detail" class="action-icon" />
+                   </a>
+                   <span class="btn-delete" (click)="handleDelete(item.id)">
+                     <img src="assets/Icon/delete.png" width="30px" height="auto" alt="delete" class="action-icon" />
+                   </span>
                 </div>
-            </div>
-        </div>
+               </ng-template>
+        </app-paged-table>
+       
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { CompanyGridDto } from "./Dto/CompanyGridDto";
@@ -6,13 +6,15 @@ import { map } from 'rxjs/operators';
 import { CompanyCreateDto } from './Dto/CompanyCreateDto';
 import { CompanyDetailDto } from "./Dto/CompanyDetailDto";
 import { CompanyUpdateDto } from "./Dto/CompanyUpdateDto";
+import { PagingParams } from "../Shared/Paging/PagingParams";
+import { PagedResult } from "../Shared/Paging/PagedResult";
 
 @Injectable({providedIn: 'root'})
 export class CompanyService{
     constructor(private http : HttpClient){
 
     }
-    LstCompanyUrl = 'http://localhost:8000/api/Company';
+    LstCompanyUrl = 'https://localhost:2301/api/Company';
     CreateCompanyUrl = 'http://localhost:8000/api/Company';
     detailCompanyUrl = 'http://localhost:8000/api/Company/';
     updateCompanyUrl = 'http://localhost:8000/api/Company/';
@@ -26,6 +28,35 @@ export class CompanyService{
               }))
             )
           );
+    }
+
+    getPagedCompany(paging: PagingParams): Observable<PagedResult<CompanyGridDto>> {
+      let params = new HttpParams()
+        .set('pageNumber', paging.pageNumber.toString())
+        .set('pageSize', paging.pageSize.toString());
+    
+        Object.keys(paging).forEach(key => {
+          const value = (paging as any)[key];
+          if (
+            value !== undefined &&
+            value !== null &&
+            value !== '' &&
+            key !== 'pageNumber' &&
+            key !== 'pageSize'
+          ) {
+            params = params.set(key, value);
+          }
+        });
+    
+      return this.http.get<PagedResult<CompanyGridDto>>(this.LstCompanyUrl, { params }).pipe(
+        map(res => ({
+          ...res,
+          items: res.items.map(item => ({
+            ...item,
+            image: 'assets/Icon/userIcon.png'
+          }))
+        }))
+      );
     }
 
     createCompany(dto : CompanyCreateDto) : Observable<CompanyCreateDto> 

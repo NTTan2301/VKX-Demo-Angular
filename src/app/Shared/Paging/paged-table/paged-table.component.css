@@ -1,0 +1,74 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table thead {
+    background-color: #e2e2e2;
+  }
+  
+  .table thead th {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #ccc;
+  }
+  
+  .table tbody td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+
+  nav {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Định dạng ul (mảng các trang) */
+  .pagination {
+    display: inline-flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Định dạng các li (mỗi trang) */
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  /* Định dạng các link trong page-item */
+  .page-link {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    background-color: white;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Thêm hiệu ứng hover cho các trang */
+  .page-link:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Khi trang bị vô hiệu hóa */
+  .page-item.disabled .page-link {
+    cursor: default;
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-color: #e9ecef;
+  }
+  
+  
+  /* Trang hiện tại, đổi màu nền */
+  .page-item.disabled span {
+    background-color: #007bff;
+    color: white;
+  }

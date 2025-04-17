@@ -1,0 +1,44 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns">{{ col.header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data.items">
+        <td *ngFor="let col of columns">
+          <!-- {{ item[col.field] }} -->
+          <ng-container *ngIf="col.field === 'image'; else dataCell">
+            <!-- Hiển thị ảnh nếu cột là 'image' -->
+            <img [src]="item[col.field]" alt="Image" width="50px" height="auto" />
+          </ng-container>
+          <ng-template #dataCell>
+            <!-- Hiển thị các dữ liệu khác -->
+            {{ item[col.field] }}
+          </ng-template>
+        </td>
+        <td *ngIf="actionTemplate">
+            <ng-container
+              *ngTemplateOutlet="actionTemplate; context: { $implicit: item }">
+            </ng-container>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Pagination controls -->
+  <nav>
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="data.pageNumber === 1">
+        <a class="page-link" (click)="onPageChange(data.pageNumber - 1)">Previous</a>
+      </li>
+      <li class="page-item disabled">
+        <span class="page-link">Page {{ data.pageNumber }}</span>
+      </li>
+      <li class="page-item" [class.disabled]="data.items.length < data.pageSize">
+        <a class="page-link" (click)="onPageChange(data.pageNumber + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+
